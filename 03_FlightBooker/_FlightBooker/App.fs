@@ -75,18 +75,10 @@ type App () =
 
 
     let view (model: Model) (dispatch : Msg -> unit) =
-        let selectedIndex = match model.Trip with 
-                            | OneWay _ -> 0
-                            | RoundTrip _ -> 1
-
-        let departureDate = match model.Trip with 
-                            | OneWay t -> t 
-                            | RoundTrip (t, _) -> t
-
-        let returnDate, returnEnabled = match model.Trip with 
-                                        | OneWay t -> t.AddDays(1.), false 
-                                        | RoundTrip (_, r) -> r, true
-
+        let (selectedIndex, departureDate, returnDate, returnEnabled) = match model.Trip with 
+                                                                        | OneWay d -> 0, d, d.AddDays(1.), false
+                                                                        | RoundTrip (d, r) -> 1, d, r, true
+        
         let bookingEnabled = not (model.DepartureError || model.ReturnError)
         Xaml.ContentPage(
             content=Xaml.StackLayout(padding=20.0,

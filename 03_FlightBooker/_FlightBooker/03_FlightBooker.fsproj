@@ -5,16 +5,15 @@
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.fs" />
-    <Compile Include="AssemblyInfo.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="FSharp.Core" Version="4.3.4" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Elmish.XamarinForms">
       <HintPath>..\..\..\..\..\xamarin\Elmish.XamarinForms\build_output\Elmish.XamarinForms.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.fs" />
+    <Compile Include="AssemblyInfo.fs" />
+    <None Include="Notes.md" />
+    <PackageReference Include="FSharp.Core" Version="4.3.4" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
   </ItemGroup>
 </Project>
